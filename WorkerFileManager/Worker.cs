@@ -1,3 +1,5 @@
+using Sample;
+
 namespace WorkerFileManager
 {
     public class Worker : BackgroundService
@@ -17,6 +19,8 @@ namespace WorkerFileManager
                 {
                     _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 }
+
+                MonitorUpdaterManagerSample.UpdateMonitor("", "", "");
                 await Task.Delay(1000, stoppingToken);
             }
         }

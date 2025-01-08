@@ -7,6 +7,7 @@ namespace Sample
     using System.Diagnostics;
     using System.Linq;
     using log4net;
+    using log4net.Config;
 
     public static class MonitorUpdaterManagerSample
     {
@@ -19,19 +20,23 @@ namespace Sample
         public const string UpdaterMonitorFolder = "actualizaciones";
         public static string InstalledRollbackFilesPath = "/tmp";
         
-        private static readonly ILog Log;
+        private static readonly ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         #endregion
 
-       
+
 
         #region Metodos
-        
+
         public static void UpdateMonitor(string monitorFilesLocation, string installationFolder, string version)
         {
             try
             {
                 //var winServiceManager = new WindowsServiceManager();
+                //BasicConfigurator.Configure();
+
+                string currentDir = Environment.CurrentDirectory;
+                XmlConfigurator.Configure(new Uri(currentDir + @"\log4net.config"));
 
                 Log.Info("Iniciando las actualizaciones al monitor...");
                 
