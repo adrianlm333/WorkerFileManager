@@ -27,16 +27,21 @@ namespace Sample
 
 
         #region Metodos
-
+        /// <summary>
+        /// Update monitor
+        /// </summary>
+        /// <param name="monitorFilesLocation">Monitor files location</param>
+        /// <param name="installationFolder">Instalation folder</param>
+        /// <param name="version">Version</param>
         public static void UpdateMonitor(string monitorFilesLocation, string installationFolder, string version)
         {
             try
             {
                 //var winServiceManager = new WindowsServiceManager();
-                //BasicConfigurator.Configure();
+                BasicConfigurator.Configure();
 
-                string currentDir = Environment.CurrentDirectory;
-                XmlConfigurator.Configure(new Uri(currentDir + @"\log4net.config"));
+                //string currentDir = Environment.CurrentDirectory;
+                //XmlConfigurator.Configure(new Uri(currentDir + @"\log4net.config"));
 
                 Log.Info("Iniciando las actualizaciones al monitor...");
                 

@@ -20,8 +20,8 @@ namespace WorkerFileManager
                     _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 }
 
-                MonitorUpdaterManagerSample.UpdateMonitor("", "", "");
-                await Task.Delay(1000, stoppingToken);
+                MonitorUpdaterManagerSample.UpdateMonitor("C:\\Deploy\\TestFolder", "C:\\Deploy\\TargetFolder", "1");
+                await Task.Delay(120000, stoppingToken);
             }
         }
     }
